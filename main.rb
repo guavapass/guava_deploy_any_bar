@@ -16,9 +16,11 @@ EventMachine.run do
   # called whenever a message is received from the server
   client.received do | data |
     color = data.try(:[], 'message').try(:[], 'color')
+    
+    color =  color == 'red' ? 'exclamation' : color
 
     any_bar.color = color || 'black'
   end
 
-  client.disconnected { any_bar.color = 'grey' }
+  client.disconnected { any_bar.color = 'question' }
 end
