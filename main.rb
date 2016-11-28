@@ -20,5 +20,5 @@ EventMachine.run do
     any_bar.color = color || 'black'
   end
 
-  client.disconnected { any_bar.color = 'grey' }
+  client.disconnected { any_bar.color = 'question' }
 end
